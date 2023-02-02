@@ -1,0 +1,13 @@
+#!/bin/bash
+# https://rheb.hatenablog.com/entry/podman3-rootless-docker-compose
+# - /run/user の id を変更(これは固定ではない).
+# - `-it` を追加.
+
+set -e
+
+podman run --rm \
+-it \
+-v /run/user/1002/podman/podman.sock:/var/run/docker.sock:z \
+-v "$PWD:/$PWD:z" \
+-w "/$PWD" \
+docker/compose:1.29.2 "${@}"

@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  srv1:
+    image: alpine:latest
+    hostname: srv1
+    tty: true
+  srv2:
+    image: alpine:latest
+    hostname: srv2
+    tty: true
